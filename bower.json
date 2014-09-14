@@ -1,0 +1,21 @@
+{
+  "name": "ng-movies",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jillesme/ng-movies",
+  "authors": [
+    "Jilles Soeters <info@jilles.me>"
+  ],
+  "description": "Movies & Series Search Using AngularJS",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
