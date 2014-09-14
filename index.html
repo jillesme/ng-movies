@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title ng-bind="Search.title">Search Movies &amp; Series</title>
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+      }
+    </style>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body ng-app="ngMovies">
+
+  <div ng-view></div>
+
+  <script src="app.js"></script>
+  <script src="js/services/MovieService.js"></script>
+
+  <script src="js/controllers/MovieController.js"></script>
+  <script src="js/controllers/SearchController.js"></script>
+
+  <script src="js/filters/UniqueFilter.js"></script>
+  <script src="js/filters/TimeFilter.js"></script>
+
+  <script>
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]= function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date; e=o.createElement(i);r=o.getElementsByTagName(i)[0]; e.src='//www.google-analytics.com/analytics.js'; r.parentNode.insertBefore(e,r)}(window,document,'script','ga')); ga('create','UA-53858889-2','auto');ga('send','pageview');
+  </script>
+</body>
+</html>

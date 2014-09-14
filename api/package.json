@@ -1,0 +1,14 @@
+{
+  "name" : "imdb-image-bypass",
+  "version" : "0.1.0",
+  "description" : "Bypass the imdb image referer check",
+  "main" : "image.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+
+  "devDependencies": {
+    "request": "2.42.0"
+  }
+}

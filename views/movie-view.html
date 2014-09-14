@@ -1,0 +1,25 @@
+<main>
+
+
+  <div class="movie-title">
+    <a href="#/">&#8592;</a>
+    <h1>{{ movie.result.Title }} <span>({{ movie.result.Year }})</span></h1>
+  </div>
+
+  <div class="movie-poster fade-in">
+    <img ng-src="{{ movie.Poster }}" alt="{{ movie.result.Title }}">
+  </div>
+
+  <div class="movie-details">
+    <b>{{ movie.result.imdbRating }}</b>
+    <p>Released: {{ movie.result.Released }}</p>
+    <p>Runtime: {{ movie.result.Runtime | movietime }}</p>
+    <p>Genre: {{ movie.result.Genre }}</p>
+    <p>Actors: {{ movie.result.Actors }}</p>
+    <p>{{ movie.result.Plot }}</p>
+    <p>Language(s): {{ movie.result.Language }}</p>
+    <p>Awards: {{ movie.result.Awards }}</p>
+    <p style="text-transform: capitalize">Type: {{ movie.result.Type }}</p>
+  </div>
+
+</main>

@@ -1,0 +1,16 @@
+<div>
+
+  <input id="search-bar" type="text" placeholder="The Shawshank Redemption"
+  ng-model="search.title"
+  ng-value="search.title"
+  ng-change="search.getMovieByTitle(search.title)">
+
+    <div class="movie-list">
+      <ul ng-show="search.title.length > 0">
+          <li ng-repeat="movie in search.movies | unique: 'Title' | orderBy: 'imdbRating'">
+            <a ng-href="#/movie/{{ movie.imdbID }}">{{ movie.Title }} ({{ movie.Year }})</a>
+          </li>
+      </ul>
+    </div>
+
+</div>
