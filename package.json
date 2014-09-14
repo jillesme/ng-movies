@@ -1,5 +1,5 @@
 {
-  "name": "angular-movies",
+  "name": "movies",
   "version": "0.1.0",
   "description": "Movies & Series app /w AngularJS",
   "repository": {
@@ -7,9 +7,7 @@
     "url": ""
   },
   "devDependencies": {
-    "del": "^0.1.3",
     "gulp": "^3.8.8",
-    "gulp-autoprefixer": "^1.0.0",
     "gulp-concat": "^2.4.0",
     "gulp-jshint": "^1.8.4",
     "gulp-nodemon": "^1.0.4",
