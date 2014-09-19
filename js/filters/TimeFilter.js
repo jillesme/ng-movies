@@ -2,7 +2,9 @@ app.filter('movietime', function () {
   return function (time) {
     var re = /^([0-9]{1,3})\smin$/;
     var minutes = re.exec(time);
-    if (!minutes) return time; // time could be N/A
+    if (!minutes) {
+      return time; // time could be N/A
+    }
     var minutes = minutes[1];
     var hours = 0;
     if (parseInt(minutes, 10) < 60) {
