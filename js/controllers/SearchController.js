@@ -1,4 +1,4 @@
-app.controller('SearchController', function ($scope, Search, $document) {
+app.controller('SearchController', function ($scope, Search) {
   var vm = this;
 
   vm.movies = Search.movies;
