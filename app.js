@@ -14,8 +14,7 @@
         templateUrl: './views/movie-view.html',
         controller: 'MovieController',
         controllerAs: 'movie',
-        resolve: {
-        }
+        resolve: {}
       })
       .otherwise({
         redirectTo: '/'
