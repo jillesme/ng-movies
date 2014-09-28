@@ -24,5 +24,9 @@ The API will have to run in order to fetch the images from imdb. They block cros
 * *Unit tests*
 * Better design
 * Mobile optimized
+<<<<<<< HEAD
+=======
+* Lots of *Unit tests*
+>>>>>>> bc8ff82a658ada923c440182eafaffc2d3332c39
 * Series next 'airdate'
 * Improve overall code quality
