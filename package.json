@@ -1,6 +1,7 @@
 {
   "name": "ng-movies",
   "version": "0.1.0",
+  "author": "Jilles",
   "description": "Movies & Series Search Using AngularJS",
   "repository": {
     "type": "git",
