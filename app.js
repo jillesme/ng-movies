@@ -1,9 +1,4 @@
-(function () {
-  "use strict";
-
-  var app = angular.module('ngMovies', ['ngRoute']);
-
-  app.config(function ($routeProvider) {
+function RouterConfig ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: './views/search-view.html',
@@ -19,7 +14,7 @@
       .otherwise({
         redirectTo: '/'
       });
-  });
+}
 
-  window.app = app;
-})();
+angular.module('ngMovies', ['ngRoute'])
+  .config(RouterConfig);
