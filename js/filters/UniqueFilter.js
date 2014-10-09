@@ -1,6 +1,5 @@
-angular.module('ngMovies')
-  .filter('unique', function() {
-    return function(collection, keyname) {
+function UniqueFilter () {
+    return function (collection, keyname) {
       var output = [];
       var keys = [];
 
@@ -13,5 +12,8 @@ angular.module('ngMovies')
       });
 
       return output;
-    };
-  });
+    }
+}
+
+angular.module('ngMovies')
+  .filter('unique', UniqueFilter);

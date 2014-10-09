@@ -3,13 +3,12 @@ function RouterConfig ($routeProvider) {
       .when('/', {
         templateUrl: './views/search-view.html',
         controller: 'SearchController',
-        controllerAs: 'search'
+        controllerAs: 'vm'
       })
       .when('/movie/:id', {
         templateUrl: './views/movie-view.html',
         controller: 'MovieController',
-        controllerAs: 'movie',
-        resolve: {}
+        controllerAs: 'vm'
       })
       .otherwise({
         redirectTo: '/'

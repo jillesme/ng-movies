@@ -1,5 +1,4 @@
-angular.module('ngMovies')
-  .controller('MovieController', function ($scope, Search, $routeParams) {
+function MovieController ($scope, $routeParams, Search) {
     var vm = this;
 
     Search.getMovieByID($routeParams.id).then(function () {
@@ -12,5 +11,7 @@ angular.module('ngMovies')
       }
     });
 
-  });
+}
 
+angular.module('ngMovies')
+  .controller('MovieController', MovieController);

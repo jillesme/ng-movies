@@ -2,23 +2,23 @@
 
   <div class="movie-title">
     <a href="#/">&#8592;</a>
-    <h1>{{ movie.result.Title }} <span>({{ movie.result.Year }})</span></h1>
+    <h1>{{ vm.result.Title }} <span>({{ vm.result.Year }})</span></h1>
   </div>
 
   <div class="movie-poster fade-in">
-    <img ng-src="{{ movie.Poster }}" alt="{{ movie.result.Title }}">
+    <img ng-src="{{ vm.Poster }}" alt="{{ vm.result.Title }}">
   </div>
 
   <div class="movie-details">
-    <b>{{ movie.result.imdbRating }}</b>
-    <p>Released: {{ movie.result.Released }}</p>
-    <p>Runtime: {{ movie.result.Runtime | movietime }}</p>
-    <p>Genre: {{ movie.result.Genre }}</p>
-    <p>Actors: {{ movie.result.Actors }}</p>
-    <p>{{ movie.result.Plot }}</p>
-    <p>Language(s): {{ movie.result.Language }}</p>
-    <p>Awards: {{ movie.result.Awards }}</p>
-    <p style="text-transform: capitalize">Type: {{ movie.result.Type }}</p>
+    <b>{{ vm.result.imdbRating }}</b>
+    <p>Released: {{ vm.result.Released }}</p>
+    <p>Runtime: {{ vm.result.Runtime | movietime }}</p>
+    <p>Genre: {{ vm.result.Genre }}</p>
+    <p>Actors: {{ vm.result.Actors }}</p>
+    <p>{{ vm.result.Plot }}</p>
+    <p>Language(s): {{ vm.result.Language }}</p>
+    <p>Awards: {{ vm.result.Awards }}</p>
+    <p style="text-transform: capitalize">Type: {{ vm.result.Type }}</p>
   </div>
 
 </main>

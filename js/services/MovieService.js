@@ -1,5 +1,4 @@
-angular.module('ngMovies')
-  .factory('Search', ['$http', function ($http) {
+function SearchFactory ($http) {
   var URL = 'http://www.omdbapi.com/';
   var Search = {};
 
@@ -40,4 +39,7 @@ angular.module('ngMovies')
   };
 
   return Search;
-}]);
+}
+
+angular.module('ngMovies')
+  .factory('Search', SearchFactory);

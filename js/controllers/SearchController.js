@@ -1,5 +1,5 @@
-angular.module('ngMovies')
-  .controller('SearchController', function ($scope, Search) {
+function SearchController ($scope, Search) {
+
     var vm = this;
 
     vm.movies = Search.movies;
@@ -15,4 +15,6 @@ angular.module('ngMovies')
       });
     };
 
-  });
+}
+angular.module('ngMovies')
+  .controller('SearchController', SearchController);
