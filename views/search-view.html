@@ -7,7 +7,7 @@
 
     <div class="movie-list">
       <ul ng-show="vm.title.length > 0">
-          <li ng-repeat="movie in vm.movies | unique: 'Title' | orderBy: 'imdbRating'">
+          <li ng-repeat="movie in vm.movies | Unique: 'Title' | orderBy: 'imdbRating'">
             <a ng-href="#/movie/{{ movie.imdbID }}">{{ movie.Title }} ({{ movie.Year }})</a>
           </li>
       </ul>
