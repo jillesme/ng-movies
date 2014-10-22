@@ -1,9 +1,10 @@
 function SearchFactory ($http) {
-  var URL = 'http://www.omdbapi.com/';
+  var omdbUrl = 'http://www.omdbapi.com/';
+  var apiUrl = 'http://localhost:3020/';
   var Search = {};
 
   Search.getMovieByTitle = function (title) {
-    return $http.get(URL + '?s=' + title)
+    return $http.get(omdbUrl + '?s=' + title)
         .success(function (data) {
           if (!data.hasOwnProperty('Error')) {
             // omdb returns a Search object containing all the movies
@@ -16,7 +17,7 @@ function SearchFactory ($http) {
     };
 
   Search.getMovieByID = function (id) {
-    return $http.get(URL + '?i=' + id + '&plot=full')
+    return $http.get(apiUrl + '?i=' + id)
         .success(function (data) {
           if (!data.hasOwnProperty('Error')) {
             Search.movie = data;
@@ -25,17 +26,6 @@ function SearchFactory ($http) {
         .error(function (error) {
           console.log(error);
         });
-  };
-
-  Search.getMoviePoster = function (url) {
-    if (url === 'N/A') return;
-    return $http.get('http://localhost:3020?img=' + url)
-      .success(function (data) {
-        Search.poster = data;
-      })
-      .error(function (error) {
-          console.log(error);
-      });
   };
 
   return Search;

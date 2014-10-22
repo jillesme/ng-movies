@@ -6,7 +6,7 @@
   </div>
 
   <div class="movie-poster fade-in">
-    <img ng-src="{{ vm.Poster }}" alt="{{ vm.result.Title }}">
+    <img ng-src="{{ vm.result.Poster }}" alt="{{ vm.result.Title }}">
   </div>
 
   <div class="movie-details">
@@ -19,6 +19,7 @@
     <p>Language(s): {{ vm.result.Language }}</p>
     <p>Awards: {{ vm.result.Awards }}</p>
     <p style="text-transform: capitalize">Type: {{ vm.result.Type }}</p>
+    <small>(This query took {{ vm.result.time }}ms to load)</small>
   </div>
 
 </main>
