@@ -10,7 +10,9 @@ var result;
 
 
 function error (response) {
-  response.writeHead(501);
+  response.writeHead(501, {
+  'Access-Control-Allow-Origin': 'http://localhost:8000' // This need fixing on localhost..
+  });
   response.end();
   timer = null;
   return;

@@ -1,4 +1,4 @@
-<div>
+<div ng-class="{ blur: vm.loading }">
 
   <input id="search-bar" type="text" placeholder="The Matrix, Harry Potter, The Shawshank Redemption" autofocus
   ng-model="vm.title"
@@ -8,7 +8,7 @@
     <div class="movie-list">
       <ul ng-show="vm.title.length > 0">
           <li ng-repeat="movie in vm.movies | Unique: 'Title' | orderBy: 'imdbRating'">
-            <a ng-href="#/movie/{{ movie.imdbID }}">{{ movie.Title }} ({{ movie.Year }})</a>
+            <a ng-href="#/movie/{{ movie.imdbID }}" ng-click="vm.loading = true">{{ movie.Title }} ({{ movie.Year }})</a>
           </li>
       </ul>
     </div>

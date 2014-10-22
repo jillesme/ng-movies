@@ -3,6 +3,8 @@ function SearchFactory ($http, $q) {
   var apiUrl = 'http://localhost:3020/';
   var Search = {};
 
+  Search.loading = false;
+
   Search.getMovieByTitle = function (title) {
     return $http.get(omdbUrl + '?s=' + title)
         .success(function (data) {
@@ -18,9 +20,11 @@ function SearchFactory ($http, $q) {
 
   Search.getMovieByID = function (id) {
     var defer = $q.defer();
+    Search.loading = true;
     return $http.get(apiUrl + '?i=' + id)
         .success(function (data) {
           defer.resolve();
+          Search.loading = false;
           if (!data.hasOwnProperty('Error')) {
             Search.movie = data;
           }
