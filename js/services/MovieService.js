@@ -17,13 +17,16 @@ function SearchFactory ($http, $q) {
     };
 
   Search.getMovieByID = function (id) {
+    var defer = $q.defer();
     return $http.get(apiUrl + '?i=' + id)
         .success(function (data) {
+          defer.resolve();
           if (!data.hasOwnProperty('Error')) {
             Search.movie = data;
           }
         })
         .error(function (error) {
+          defer.reject();
           console.log(error);
         });
   };

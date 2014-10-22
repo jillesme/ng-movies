@@ -9,7 +9,12 @@ function RouterConfig ($routeProvider) {
         templateUrl: './views/movie-view.html',
         controller: 'MovieController',
         controllerAs: 'vm',
-        resolve: {} // TODO: Resolve on Search.getMovieByID
+        resolve: {
+          on: function ($route, Search) {
+            var id = $route.current.params.id;
+            return Search.getMovieByID(id);
+          }
+        }
       })
       .otherwise({
         redirectTo: '/'
