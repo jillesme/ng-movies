@@ -8,7 +8,8 @@ function RouterConfig ($routeProvider) {
       .when('/movie/:id', {
         templateUrl: './views/movie-view.html',
         controller: 'MovieController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {} // TODO: Resolve on Search.getMovieByID
       })
       .otherwise({
         redirectTo: '/'

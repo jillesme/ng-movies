@@ -1,4 +1,4 @@
-function SearchFactory ($http) {
+function SearchFactory ($http, $q) {
   var omdbUrl = 'http://www.omdbapi.com/';
   var apiUrl = 'http://localhost:3020/';
   var Search = {};
