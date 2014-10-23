@@ -10,9 +10,9 @@ function RouterConfig ($routeProvider) {
         controller: 'MovieController',
         controllerAs: 'vm',
         resolve: {
-          on: function ($route, Search) {
+          on: function ($route, SearchService) {
             var id = $route.current.params.id;
-            return Search.getMovieByID(id);
+            return SearchService.getMovieByID(id);
           }
         }
       })

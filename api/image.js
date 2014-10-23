@@ -10,7 +10,7 @@ var result;
 
 
 function error (response) {
-  response.writeHead(501, {
+  response.writeHead(500, {
   'Access-Control-Allow-Origin': 'http://localhost:8000' // This need fixing on localhost..
   });
   response.end();
@@ -34,7 +34,7 @@ http.createServer(function (req, res) {
   var url = API + req.url + '&plot=full';
   timer = setTimeout(function () {
     error(res);
-  }, 10000);
+  }, 5000);
   var start = new Date().getTime();
 
   // Get the omdb data

@@ -1,17 +1,17 @@
-function SearchController ($scope, Search) {
+function SearchController ($scope, SearchService) {
 
     var vm = this;
 
-    vm.movies = Search.movies;
-    vm.title = Search.title;
+    vm.movies = SearchService.movies;
+    vm.title = SearchService.title;
 
     vm.getMovieByTitle = function (title) {
       if (title.length <= 1) {
         return;
       }
-      Search.title = title;
-      Search.getMovieByTitle(title).then(function () {
-        vm.movies = Search.movies;
+      SearchService.title = title;
+      SearchService.getMovieByTitle(title).then(function () {
+        vm.movies = SearchService.movies;
       });
     };
 

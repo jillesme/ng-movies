@@ -1,16 +1,16 @@
-function SearchFactory ($http, $q) {
+function SearchService ($http) {
   var omdbUrl = 'http://www.omdbapi.com/';
   var apiUrl = 'http://localhost:3020/';
   var Search = {};
 
-  Search.loading = false;
+  SearchService.loading = false;
 
-  Search.getMovieByTitle = function (title) {
+  SearchService.getMovieByTitle = function (title) {
     return $http.get(omdbUrl + '?s=' + title)
         .success(function (data) {
           if (!data.hasOwnProperty('Error')) {
             // omdb returns a Search object containing all the movies
-            Search.movies = data.Search;
+            SearchService.movies = data.Search;
           }
         })
         .error(function (error) {
@@ -18,25 +18,22 @@ function SearchFactory ($http, $q) {
         });
     };
 
-  Search.getMovieByID = function (id) {
-    var defer = $q.defer();
-    Search.loading = true;
+  SearchService.getMovieByID = function (id) {
+    SearchService.loading = true;
     return $http.get(apiUrl + '?i=' + id)
         .success(function (data) {
-          defer.resolve();
-          Search.loading = false;
+          SearchService.loading = false;
           if (!data.hasOwnProperty('Error')) {
-            Search.movie = data;
+            SearchService.movie = data;
           }
         })
         .error(function (error) {
-          defer.reject();
           console.log(error);
         });
   };
 
-  return Search;
+  return SearchService;
 }
 
 angular.module('ngMovies')
-  .factory('Search', SearchFactory);
+  .factory('SearchService', SearchService);
