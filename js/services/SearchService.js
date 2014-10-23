@@ -1,7 +1,7 @@
-function SearchService ($http) {
+function SearchService ($http, $route) {
   var omdbUrl = 'http://www.omdbapi.com/';
   var apiUrl = 'http://localhost:3020/';
-  var Search = {};
+  var SearchService = {};
 
   SearchService.loading = false;
 
@@ -27,8 +27,9 @@ function SearchService ($http) {
             SearchService.movie = data;
           }
         })
-        .error(function (error) {
-          console.log(error);
+        .error(function () {
+          // TODO: Handle this with Growl..
+          $route.reload();
         });
   };
 
