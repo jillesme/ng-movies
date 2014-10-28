@@ -18,10 +18,10 @@ gulp.task('api', function () {
   });
 });
 
-gulp.task('lint', function () {
+gulp.task('jshint', function () {
   return gulp.src(paths.javascript)
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('default', ['server', 'api']);
+gulp.task('default', ['server', 'api', 'jshint']);
