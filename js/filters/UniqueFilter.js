@@ -12,7 +12,7 @@ function UniqueFilter () {
       });
 
       return output;
-    }
+    };
 }
 
 angular.module('ngMovies')
