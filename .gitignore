@@ -1,3 +1,7 @@
+# ng-movies
+public/dist
+public/lib
+
 # Node
 node_modules
 bower_components
