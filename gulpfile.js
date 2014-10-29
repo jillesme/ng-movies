@@ -6,6 +6,11 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var preprocess = require('gulp-preprocess');
 var sass = require('gulp-sass');
+var notify = require('gulp-notify');
+var clean = require('gulp-clean');
+var minifyHTML = require('gulp-minify-html');
+var csso = require('gulp-csso');
+
 
 var paths = {
   scripts: [
@@ -40,6 +45,7 @@ gulp.task('html:dev', function() {
 gulp.task('sass:dev', function () {
   gulp.src(paths.styles)
     .pipe(sass())
+    .on('error', notify.onError())
     .pipe(gulp.dest('./public/dist/css'));
 });
 
@@ -59,24 +65,33 @@ gulp.task('libs:dev', function () {
 gulp.task('html:prod', function() {
   gulp.src(paths.index)
     .pipe(preprocess({ context: { build: 'prod' } }))
+    .pipe(minifyHTML({ empty: true }))
     .pipe(gulp.dest('./public/dist/'));
+  
+    gulp.src(paths.views)
+      .pipe(preprocess({ context: { build: 'prod' } }))
+      .pipe(gulp.dest('./public/dist/views/'));
+});
 
-  gulp.src(paths.views)
-    .pipe(preprocess({ context: { build: 'prod' } }))
-    .pipe(gulp.dest('./public/dist/views/'));
+gulp.task('sass:prod', function () {
+  gulp.src(paths.styles)
+    .pipe(sass())
+    .on('error', notify.onError())
+    .pipe(csso())
+    .pipe(gulp.dest('./public/dist/css'));
 });
 
 gulp.task('scripts:prod', function () {
   return gulp.src(paths.scripts)
     .pipe(concat('app.js'))
-    .pipe(uglify())
+    .pipe(uglify({ mangle: false }))
     .pipe(gulp.dest('public/dist/js'));
 });
 
 gulp.task('libs:prod', function () {
   return gulp.src(paths.libs)
     .pipe(concat('lib.js'))
-    .pipe(uglify())
+    .pipe(uglify({ mangle: false }))
     .pipe(gulp.dest('public/dist/js'));
 });
 
@@ -87,7 +102,9 @@ gulp.task('server', function () {
 
 gulp.task('api', function () {
   return nodemon({
-    script: 'api/image.js'
+    script: 'api/image.js',
+    ext: 'js',
+    ignore: ['gulpfile.js', 'public/**/*'],
   });
 });
 
@@ -95,6 +112,11 @@ gulp.task('jshint', function () {
   return gulp.src(paths.scripts)
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('clean', function () {
+  return gulp.src('public/dist', { read: false })
+    .pipe(clean());
 });
 
 gulp.task('default', [
@@ -108,8 +130,9 @@ gulp.task('default', [
 ]);
 
 gulp.task('build', [
-  'server',
-  'api',
+  'clean',
+  'html:prod',
+  'sass:prod',
   'scripts:prod',
   'libs:prod',
   'jshint'

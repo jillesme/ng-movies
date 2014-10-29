@@ -5,6 +5,7 @@ public/lib
 # Node
 node_modules
 bower_components
+npm-debug.log
 
 # OS X
 .DS_Store
