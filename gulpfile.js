@@ -9,7 +9,7 @@ var paths = {
 
 gulp.task('server', function () {
   return gulp.src('./')
-    .pipe(serv({ open: true }));
+    .pipe(serv());
 });
 
 gulp.task('api', function () {
@@ -24,4 +24,8 @@ gulp.task('jshint', function () {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('default', ['server', 'api', 'jshint']);
+gulp.task('default', [
+  'server',
+  'api',
+  'jshint'
+]);

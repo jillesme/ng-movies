@@ -8,7 +8,7 @@
     "url": "https://github.com/jillesme/ng-movies"
   },
   "devDependencies": {
-    "gulp": "^3.8.8",
+    "gulp": "^3.8.9",
     "gulp-concat": "^2.4.0",
     "gulp-jshint": "^1.8.6",
     "gulp-nodemon": "^1.0.4",
