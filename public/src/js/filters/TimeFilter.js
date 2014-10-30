@@ -3,6 +3,7 @@ function MovieTimeFilter () {
       var re = /^([0-9]{1,3})\smin$/;
       var minutes = re.exec(time);
       if (!minutes) {
+        time = 'N/A';
         return time; // time could be N/A
       }
       var minute = minutes[1];
@@ -19,7 +20,7 @@ function MovieTimeFilter () {
       var rs = hours + ' hour';
       rs += (hours > 1) ? 's' : '';
       if (minute > 0) {
-        rs += ' and ' + minute + ' minutes';
+        rs += ' ' + minute + ' minutes';
       }
       return rs;
     };

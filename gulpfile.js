@@ -10,6 +10,7 @@ var notify = require('gulp-notify');
 var clean = require('gulp-clean');
 var minifyHTML = require('gulp-minify-html');
 var csso = require('gulp-csso');
+var karma = require('gulp-karma');
 
 
 var paths = {
@@ -29,6 +30,12 @@ var paths = {
   ],
   views: [
     './public/src/views/*.html'
+  ],
+  tests: [
+    'public/dist/js/lib.js',
+    'public/dist/js/app.js',
+    'public/lib/angular-mocks/angular-mocks.js',
+    'test/spec/**/*.js'
   ]
 };
 
@@ -95,6 +102,18 @@ gulp.task('libs:prod', function () {
     .pipe(gulp.dest('public/dist/js'));
 });
 
+
+gulp.task('test', function () {
+  return gulp.src(paths.tests)
+    .pipe(karma({
+      configFile: 'test/karma.conf.js',
+      action: 'run'
+    }))
+    .on('error', function (err) {
+      throw err;
+    });
+});
+
 gulp.task('server', function () {
   return gulp.src('public/dist')
     .pipe(serv());
@@ -130,7 +149,6 @@ gulp.task('default', [
 ]);
 
 gulp.task('build', [
-  'clean',
   'html:prod',
   'sass:prod',
   'scripts:prod',
