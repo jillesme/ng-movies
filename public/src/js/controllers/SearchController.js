@@ -1,4 +1,4 @@
-function SearchController ($scope, SearchService) {
+function SearchController (SearchService) {
 
     var vm = this;
 
@@ -9,7 +9,6 @@ function SearchController ($scope, SearchService) {
       if (title.length <= 1) {
         return;
       }
-      SearchService.title = title;
       SearchService.getMovieByTitle(title).then(function () {
         vm.movies = SearchService.movies;
       });

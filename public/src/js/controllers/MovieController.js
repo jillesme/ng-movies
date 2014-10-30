@@ -1,4 +1,4 @@
-function MovieController ($scope, $routeParams, SearchService) {
+function MovieController (SearchService) {
   var vm = this;
 
   vm.result = SearchService.movie;
