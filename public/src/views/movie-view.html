@@ -13,7 +13,7 @@
   <div class="movie-details">
     <b>{{ vm.result.imdbRating }}</b>
     <p>Released: {{ vm.result.Released }}</p>
-    <p>Runtime: {{ vm.result.Runtime | MovieTime }}</p>
+    <p>Runtime: {{ vm.result.Runtime | TimeFilter }}</p>
     <p>Genre: {{ vm.result.Genre }}</p>
     <p>Actors: {{ vm.result.Actors }}</p>
     <p>{{ vm.result.Plot }}</p>

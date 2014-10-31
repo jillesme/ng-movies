@@ -1,4 +1,4 @@
-function MovieTimeFilter () {
+function TimeFilter () {
     return function (time) {
       var re = /^([0-9]{1,3})\smin$/;
       var minutes = re.exec(time);
@@ -27,4 +27,4 @@ function MovieTimeFilter () {
 }
 
 angular.module('ngMovies')
-  .filter('MovieTime', MovieTimeFilter);
+  .filter('TimeFilter', TimeFilter);

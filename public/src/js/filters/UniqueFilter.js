@@ -16,4 +16,4 @@ function UniqueFilter () {
 }
 
 angular.module('ngMovies')
-  .filter('Unique', UniqueFilter);
+  .filter('UniqueFilter', UniqueFilter);
