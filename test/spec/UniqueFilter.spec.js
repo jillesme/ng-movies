@@ -5,7 +5,7 @@ describe('UniqueFilter', function () {
   var UniqueFilter;
 
   beforeEach(inject(function ($filter) {
-    UniqueFilter = $filter('Unique');
+    UniqueFilter = $filter('UniqueFilter');
   }));
 
   it('should be a filter', function () {

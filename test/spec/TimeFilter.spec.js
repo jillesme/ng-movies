@@ -5,7 +5,7 @@ describe('TimeFilter', function () {
   var TimeFilter;
 
   beforeEach(inject(function ($filter) {
-    TimeFilter = $filter('MovieTime');
+    TimeFilter = $filter('TimeFilter');
   }));
 
   it('should be a filter', function () {
