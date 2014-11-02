@@ -35,7 +35,7 @@ var paths = {
     'public/dist/js/lib.js',
     'public/dist/js/app.js',
     'public/lib/angular-mocks/angular-mocks.js',
-    'test/spec/**/*.js'
+    'public/test/spec/**/*.js'
   ]
 };
 
@@ -106,7 +106,7 @@ gulp.task('libs:prod', function () {
 gulp.task('test', function () {
   return gulp.src(paths.tests)
     .pipe(karma({
-      configFile: 'test/karma.conf.js',
+      configFile: 'public/test/karma.conf.js',
       action: 'run'
     }))
     .on('error', function (err) {
