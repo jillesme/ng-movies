@@ -1,12 +1,10 @@
-function SearchService ($http, $route) {
-  var omdbUrl = 'http://www.omdbapi.com/';
-  var apiUrl = 'http://localhost:3020/';
+function SearchService ($http, $route, ApiFactory) {
   var SearchService = {};
 
   SearchService.loading = false;
 
   SearchService.getMovieByTitle = function (title) {
-    return $http.get(omdbUrl + '?s=' + title)
+    return $http.get(ApiFactory.omdb + '?s=' + title)
     .success(function (data) {
       if (!data.hasOwnProperty('Error')) {
         // omdb returns a Search object containing all the movies
@@ -20,7 +18,7 @@ function SearchService ($http, $route) {
 
   SearchService.getMovieByID = function (id) {
     SearchService.loading = true;
-    return $http.get(apiUrl + '?i=' + id)
+    return $http.get(ApiFactory.local + '?i=' + id)
     .success(function (data) {
       SearchService.loading = false;
       if (!data.hasOwnProperty('Error')) {
