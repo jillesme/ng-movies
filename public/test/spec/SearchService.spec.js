@@ -1,3 +1,5 @@
+/*global describe, it, before, beforeEach, after, afterEach, inject, expect */
+
 var fake = {};
 fake.movies = {
   'Search':[
@@ -27,11 +29,20 @@ describe('SearchService', function () {
   beforeEach(module('ngMovies'));
 
   var SearchService;
+  var ApiFactory;
+  var $httpBackend;
 
   beforeEach(inject(function ($injector) {
     SearchService = $injector.get('SearchService');
+    ApiFactory = $injector.get('ApiFactory');
     $httpBackend = $injector.get('$httpBackend');
   }));
+
+
+  afterEach(function() {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
 
   it('should be a valid service', function () {
     expect(SearchService).not.toBe(undefined);
@@ -41,8 +52,12 @@ describe('SearchService', function () {
     expect(SearchService.loading).toBe(false);
   });
 
-  it('should return a Search object with movies', function () {
-    // @TODO fix this
+  iit('should return a Search object with movies', function () {
+    $httpBackend.whenGET('views/search-view.html').passThrough();
+    $httpBackend.expectGET(ApiFactory.omdb + '?t=' + 'Shaw')
+      .respond(200, fake.movies);
+
+      $httpBackend.flush();
   });
 
 });
