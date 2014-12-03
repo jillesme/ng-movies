@@ -21,8 +21,7 @@ The API will have to run in order to fetch the images from imdb. They block cros
 
 ## Todo
 
-* *Unit tests*
-* Error handling (angular growl?)
+* Error handling
 * Better design
 * Mobile optimized
 * Series next 'airdate'
